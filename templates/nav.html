@@ -8,13 +8,18 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">业务</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">联系我们</a></li>
                 {% if user.is_authenticated %}
-                <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'logout' %}">退出</a></li>
+                <div class="row" >
+                    <div class="col"   >
+                        <li> <small style="color: red;">你好 {{user.username}}</small> </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account_logout' %}">退出</a></li>
+                    </div>
+                   
+                </div>
+                
                 {% else %}
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">注册</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'login' %}">登录</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account_signup' %}">注册</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account_login' %}">登录</a></li>
                 {% endif %}
-
-
 
             </ul>
         </div>
